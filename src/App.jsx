@@ -10,6 +10,30 @@ function App() {
   const [editIndex, setEditIndex] = useState(null);
   const [editValue, setEditValue] = useState('');
   const [darkMode, setDarkMode] = useState(true);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+
+
+useEffect(() => {
+  const stored = localStorage.getItem('tasks');
+  try {
+    const parsed = JSON.parse(stored);
+    if (Array.isArray(parsed)) {
+      setTask(parsed);
+    }
+  } catch (e) {
+  } finally {
+    setIsFirstLoad(false); 
+  }
+}, []);
+
+
+
+useEffect(() => {
+  if (!isFirstLoad) {
+    console.log('saving');
+    localStorage.setItem('tasks', JSON.stringify(task));
+  }
+}, [task, isFirstLoad]);
 
   useEffect(() => {
     if (darkMode) {
