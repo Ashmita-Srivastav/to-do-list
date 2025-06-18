@@ -8,16 +8,18 @@ body {
 }
 
 .box{
-  width: 400px;
-  height: 500px;
+  width: 100%;
+  max-width: 400px;
+  min-height: 200px;
   background-color: hsl(350, 70%, 88%);
   display: flex;
   flex-direction: column;
   border-radius: 15%;
   border: 2px solid purple;
-  padding: auto ;
+  padding: 1rem ;
   box-shadow: 0 10px 20px rgba(0, 204, 255, 0.7), 0 0 30px rgba(61, 233, 239, 0.817);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible;
 }
 
 h1{
@@ -33,8 +35,7 @@ h1{
   width: 230px;
   height: 15px;
   color: #000;
-  position: absolute;
-  margin-top: 100px;
+  margin-top: -1.5em;
   margin-left: 10px;
   border: 1px solid #000;
 }
@@ -43,10 +44,9 @@ h1{
   width: 8px;
   height: 5px;
   display: flex;
-  position: absolute;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: -1.25em;
   margin-left: 255px;
   border: 1px solid #999;;
   border-radius: 8px;
@@ -60,10 +60,9 @@ h1{
 
 #options{
   display: flex;
-  position: absolute;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: -1.5em;
   margin-left:300px;
   width: 85px;
   height: 20px;
@@ -72,9 +71,8 @@ h1{
 }
 
 #sort{
-  position: absolute;
   display: flex;
-  margin-top: 130px;
+  margin-top: 0.75rem;
   margin-left: 10px;
   justify-content: center;
   align-items: center;
@@ -84,9 +82,8 @@ h1{
 }
 
 .all{
-  position: absolute;
   display: flex;
-  margin-top: 130px;
+  margin-top: -1.2rem;
   margin-left: 105px;
   justify-content: center;
   align-items: center;
@@ -98,9 +95,8 @@ h1{
 }
 
 .done {
-  position: absolute;
   display: flex;
-  margin-top: 130px;
+  margin-top: -1.2rem;
   margin-left: 140px;
   justify-content: center;
   align-items: center;
@@ -108,13 +104,11 @@ h1{
   height: 20px;
   font-size: 8px;
   border-radius: 6px;
-  border: 1px solid #aaa;
 }
 
 .pending{
-  position: absolute;
   display: flex;
-  margin-top: 130px;
+  margin-top: -1.25rem;
   margin-left: 200px;
   justify-content: center;
   align-items: center;
@@ -126,15 +120,16 @@ h1{
 }
 
 .task-list{
-  position: absolute;
-  display: inline;
-  margin-top: 190px;
-  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  margin-left: 0;
   justify-content: center;
   align-items: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
   color: green;
+  gap: 0.5rem;
 }
 
 .task-list > div {
@@ -210,5 +205,43 @@ body.dark .inp, body.dark select, body.dark button{
   align-items: flex-start;
   gap: 40px;
   padding: 40px;
+}
+
+@media (max-width: 600px) {
+  .body{
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .box {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .toggle-theme {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .inp, .add, #options, #sort, .all, .done, .pending {
+    margin-top: 0.5rem;
+    margin-left: 0;
+    width: 100%;
+    position: static;
+  }
+  .done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .done button {
+    width: 100%;
+  }
+
+  .task-list {
+    margin-top: 1rem;
+  }
 }
 
